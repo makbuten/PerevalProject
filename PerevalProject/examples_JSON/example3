@@ -1,0 +1,26 @@
+{
+    "status": "new",
+    "beautyTitle": "poss",
+    "title": "Тестовый перевал",
+    "other_titles": "перевал",
+    "connect": "соединяет две равнины",
+    "coord_id": {
+        "latitude": "63.256",
+        "longitude": "85.596",
+        "height": "1657"
+    },
+    "levels": {
+        "winter": "1A",
+        "summer": "",
+        "autumn": "",
+        "spring": ""
+    },
+    "user": {
+        "mail": "User@example.com",
+        "phone": "89104564645",
+        "name": "Boris",
+        "surname": "Vardanov",
+        "otch": "Sergeevich"
+    },
+    "images": [{"photos":"/Users/MAX/Desktop/фото для перевала/42483f0d38b9408698e3396b0fa1dee2.max-1200x800.jpg", "name":"Эверест Чогори"}, {"photos":"/Users/MAX/Desktop/фото для перевала/42483f0d38b9408698e3396b0fa1dee2.max-1200x800.jpg", "name":"Эверест Чогори"}]
+}

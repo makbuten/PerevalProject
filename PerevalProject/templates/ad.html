@@ -1,0 +1,66 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+{{title}}
+{% endblock title %}
+
+{% block content %}
+        <table>
+            <tr>
+                <td>
+                    <div class="article-panel">
+                        <p class="first"> <h1>{{ ad.header}} </h1></p>
+                        <p class="last">Дата публикации: {{ ad.time_in|date:'d M Y' }}</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="article-panel">
+                        <p class="first">Категория: {{ ad.position}}</p>
+                        <p class="last">Автор: {{ad.author_ads}}</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td> {{ ad.text_ads|safe}} </td>
+            </tr>
+            <tr>
+                <td>
+                    <button><a href="{% url 'ad_update' ad.pk %}"> Редактировать </a></button>
+                    <button><a href="{% url 'ad_delete' ad.pk %}"> Удалить </a></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="link-read-post"><a href="{% url 'post_create' ad.pk %}">Добавить комментарий</a></p>
+                </td>
+            </tr>
+            <tr><td><p class="first"><h2>Коментарии:</h2></p></td></tr>
+            {% for post in posts %}
+                <tr>
+                    <td>
+                        <div class="article-panel">
+                            <p class="first">Автор: {{post.author_post}}</p>
+                            <p class="last">Дата публикации: {{post.time_in}}</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ post.text_post|safe}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="article-panel">
+                            <li class="last">
+                                <button><a href="#"> Отклик </a> </button>
+                                <button><a href="{% url 'post_delete' ad.pk post.pk %}"> Удалить </a> </button>
+                            </li>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+
+{% endblock content %}

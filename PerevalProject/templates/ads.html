@@ -1,0 +1,58 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+<table>
+    <tr>
+        <td>
+            <div class="article-panel">
+                <p class="link-read-post"><a href="{% url 'ad_create' %}">Новая статья</a></p>
+            </div>
+        </td>
+    </tr>
+</table>
+    {% if ads %}
+    <h1> {{ title }} ( {{ ads|length }} )</h1>
+        <table>
+            {% for ad in ads %}
+            {% if not position_ad or ad.position == position_ad %}
+            <tr>
+            </tr>
+            <tr>
+                <td>
+                    <div class="article-panel">
+                        <p class="first"> <h1>{{ ad.header}}</h1></p>
+                        <p class="last">Дата публикации: {{ ad.time_in|date:'d M Y' }}</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="article-panel">
+                        <p class="first">Категория: {{ ad.position}}</p>
+                        <p class="last">Автор: {{ad.author_ads}}</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td> {{ ad.text_ads|safe}} </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="clear"></div>
+                    <p class="link-read-post"><a href="/{{ ad.pk }}">Подробнее</a></p>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+
+    {% else %}
+        <h2> Постов нет! </h2>
+    {% endif %}
+
+{% endblock content %}

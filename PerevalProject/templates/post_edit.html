@@ -1,0 +1,10 @@
+{% extends 'flatpages/default.html' %}
+{% block content %}
+<h1>Добавление объявления</h1>
+<hr>
+<form method="post" action="{% url 'post_create' post_id%}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить" />
+</form>
+{% endblock content %}
